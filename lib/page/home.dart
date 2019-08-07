@@ -10,8 +10,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
           title: Text("Traveloka Clone"),
           actions: <Widget>[
             IconButton(
@@ -23,7 +21,8 @@ class _HomeState extends State<Home> {
         body: ListView(
           children: <Widget>[
             Profile(),
-            Divider()
+            Divider(),
+            MenuUtama()
             ],
         ));
   }
@@ -67,5 +66,104 @@ class Profile extends StatelessWidget {
             ],
           ),
         ));
+  }
+}
+
+class MenuUtama extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      shrinkWrap: true,
+      crossAxisCount: 5,
+      children: menuUtamaItem,
+    );
+  }
+}
+List<MenuUtamaItem> menuUtamaItem = [
+  MenuUtamaItem(
+    title: "Tiket Pesawat",
+    colorBox: Colors.blue,
+    icon: Icons.flight,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Tiket Kereta Api",
+    colorBox: Colors.orange,
+    icon: Icons.train,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Tiket Hotel",
+    colorBox: Colors.blue,
+    icon: Icons.hotel,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Tiket Pesawat dan hotel",
+    colorBox: Colors.indigo,
+    icon: Icons.local_hotel,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Pariwisata",
+    colorBox: Colors.pink,
+    icon: Icons.beach_access,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Kuliner",
+    colorBox: Colors.yellow[800],
+    icon: Icons.restaurant_menu,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Tiket Bus",
+    colorBox: Colors.blue,
+    icon: Icons.directions_bus,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Tiket taxi",
+    colorBox: Colors.blue,
+    icon: Icons.local_taxi,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Tiket Pesawat",
+    colorBox: Colors.blue,
+    icon: Icons.flight,
+    colorIcon: Colors.white,
+  ),
+  MenuUtamaItem(
+    title: "Tiket Pesawat",
+    colorBox: Colors.blue,
+    icon: Icons.flight,
+    colorIcon: Colors.white,
+  ),
+];
+
+
+class MenuUtamaItem extends StatelessWidget {
+  MenuUtamaItem({this.title, this.icon, this.colorBox, this.colorIcon});
+  final String title;
+  final IconData icon;
+  final Color colorBox, colorIcon;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(bottom: 2.0),
+          height: 50.0,
+          width: 50.0,
+          decoration: BoxDecoration(
+            color: colorBox,
+            shape: BoxShape.circle
+          ),
+          child: Icon(icon, color: colorIcon),
+        ),
+        Text(title, style: TextStyle(fontSize: 10.0), textAlign: TextAlign.center,)
+      ],
+    );
   }
 }
